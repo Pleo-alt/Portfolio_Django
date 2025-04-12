@@ -87,3 +87,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+function toggleMenu() {
+    const navList = document.querySelector('.nav_list');
+    const isVisible = navList.getAttribute('data-visible') === 'true';
+    navList.setAttribute('data-visible', !isVisible);
+}
