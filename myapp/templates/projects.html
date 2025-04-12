@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Projects</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="{% static 'logo.png' %}" class="image_logo">
+                <h1 class="text_logo">GARRIDO</h1>
+            </div>
+            <ul class="nav_list">
+                <li class="menu"><a href="{% url 'home' %}" >Home</a></li>
+                <li class="menu"><a href="{% url 'skills' %}">Skills</a></li>
+                <li class="menu"><a href="{% url 'about' %}">About</a></li>
+                <li class="menu"><a href="{% url 'projects' %}" class="active">Projects</a></li>
+                <li class="menu"><a href="{% url 'challenges' %}">Challenges</a></li>
+                <li class="menu"><a href="{% url 'future_plans' %}">Future Plans</a></li>
+                <li class="menu"><a href="{% url 'resume' %}">Resume</a></li>
+                <li class="menu"><a href="{% url 'contact' %}">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="projects">
+            <div class="project_list">
+                <h1 class="proj_label">My Projects</h1>
+                <div class="projects-grid">
+                    {% for project in projects %}
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                        </div>
+                        <div class="project-content">
+                            <h2>{{ project.title }}</h2>
+                            <p>{{ project.description }}</p>
+                            <a href="{{ project.github_link }}" target="_blank" class="view_proj">View Project</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

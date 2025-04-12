@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Garrido</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="{% static 'logo.png' %}" class="image_logo">
+                <h1 class="text_logo">GARRIDO</h1>
+            </div>
+            <ul class="nav_list">
+                <li class="menu"><a href="{% url 'home' %}" class="active">Home</a></li>
+                <li class="menu"><a href="{% url 'skills' %}">Skills</a></li>
+                <li class="menu"><a href="{% url 'about' %}">About</a></li>
+                <li class="menu"><a href="{% url 'projects' %}">Projects</a></li>
+                <li class="menu"><a href="{% url 'challenges' %}">Challenges</a></li>
+                <li class="menu"><a href="{% url 'future_plans' %}">Future Plans</a></li>
+                <li class="menu"><a href="{% url 'resume' %}">Resume</a></li>
+                <li class="menu"><a href="{% url 'contact' %}">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="home">
+            <div class="img_container">
+                <img src="{% static 'dp.jpg' %}" class="profile_pic">
+            </div>
+
+            <div class="home_content">
+                <div class="main_description">
+                    <p>
+                        Hello, <br><span class="first_span">I am </span><span class="second_span">Adrian O. Garrido</span><br><span class="first_span">
+                            an aspiring web developer</span>
+                    </p>
+                </div>
+                <div class="sub_description">
+                    <p>Be a witness on my journey to create engaging web experiences</p>
+                </div>
+
+                <div class="all_buttons">
+                    <div class="buttons">
+                        <div class="gradient_btn1">
+                            <a href="{% url 'contact' %}"><button class="hire_btn">Hire Me</button></a>
+                        </div>
+                        <div class="gradient_btn2">
+                            <a href="{% url 'projects' %}"><button class="project_btn">Projects</button></a>
+                        </div>
+                    </div>
+                
+                <div class="socmed_logos">
+                    <div class="gradient_fb_btn">
+                        <a href="https://www.facebook.com/adrian.garrido.94"><i class="fa-brands fa-facebook-f fb_logo" style="color: #ffffff;"></i></a>
+                    </div>
+                    <div class="gradient_ig_btn">
+                        <a href="https://www.instagram.com/ian_grrido/"><i class="fa-brands fa-instagram ig_logo" style="color: #ffffff;"></i></a>
+                    </div>
+                    <div class="gradient_dc_btn">
+                        <a href="https://discord.com"><i class="fa-brands fa-discord dc_logo" style="color: #ffffff;"></i></a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+    </main>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

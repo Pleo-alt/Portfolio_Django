@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Skills</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="{% static 'logo.png' %}" class="image_logo" alt="Logo">
+                <h1 class="text_logo">GARRIDO</h1>
+            </div>
+            <ul class="nav_list">
+                <li class="menu"><a href="{% url 'home' %}" >Home</a></li>
+                <li class="menu"><a href="{% url 'skills' %}" class="active">Skills</a></li>
+                <li class="menu"><a href="{% url 'about' %}">About</a></li>
+                <li class="menu"><a href="{% url 'projects' %}">Projects</a></li>
+                <li class="menu"><a href="{% url 'challenges' %}">Challenges</a></li>
+                <li class="menu"><a href="{% url 'future_plans' %}">Future Plans</a></li>
+                <li class="menu"><a href="{% url 'resume' %}">Resume</a></li>
+                <li class="menu"><a href="{% url 'contact' %}">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="skills_section">
+            <div class="skills">
+                <h1>My <span>Skills</span></h1>
+                <div class="content">
+                    <div class="left">
+                        <p class="left_desc">This is a snapshot of my web development skills, highlighting my proficiency across various technologies. I have strong expertise in HTML and CSS, with solid experience in building responsive, user-friendly web pages. While I am still in the learning phase with frameworks like Django, JavaScript, and ReactJS, I am dedicated to improving and expanding my skills in these areas.</p>
+                        <div class="left_btn">
+                            <div class="gradient_cert_btn">
+                                <a href="{% url 'certificate' %}"> <button class="cert_btn">View Certificates</button></a>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        {% for skill in skills %}
+                            <div class="line">
+                                <div class="info">
+                                    <span>{{ skill.name }} <button class="view-more-btn"> (Read More)</button></span> 
+                                    <span>{{ skill.percentage }}%</span>
+                                </div>
+                                <div class="bars {{ skill.name|lower }}"  data-percentage="{{ skill.percentage }}"></div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="modal" id="modal">
+                <div class="modal-content">
+                    {% for skill in skills %}
+                        <div class="modal-skill" id="{{ skill.name|lower }}-modal">
+                            <h2 class="skill_name">{{ skill.name }}</h2>
+                            <p class="skill_description">{{ skill.description }}</p>
+                            <div class="close_btn">
+                            <div class="gradient_close_btn">
+                            <button class="closeModal">Close</button>
+                        </div>
+                    </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

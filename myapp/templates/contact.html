@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Contact</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="{% static 'logo.png' %}" class="image_logo">
+                <h1 class="text_logo">GARRIDO</h1>
+            </div>
+            <ul class="nav_list">
+                <li class="menu"><a href="{% url 'home' %}" >Home</a></li>
+                <li class="menu"><a href="{% url 'skills' %}">Skills</a></li>
+                <li class="menu"><a href="{% url 'about' %}">About</a></li>
+                <li class="menu"><a href="{% url 'projects' %}">Projects</a></li>
+                <li class="menu"><a href="{% url 'challenges' %}">Challenges</a></li>
+                <li class="menu"><a href="{% url 'future_plans' %}">Future Plans</a></li>
+                <li class="menu"><a href="{% url 'resume' %}">Resume</a></li>
+                <li class="menu"><a href="{% url 'contact' %}" class="active">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="contact_section">
+            <div class="contact">
+            <h2 class="section__title_contact" data-title="Get in Touch">
+                Contact Me
+            </h2>
+
+            <div class="contact__container container grid">
+                <div class="contact__details">
+                    <div class="contact__item">
+                        <i class="fa-solid fa-phone contact__icon"></i>
+                    <div>
+                    <h3 class="contact__title">Call Me</h3>
+                        <span class="contact__data">09993233549</span> 
+                </div>
+            </div>
+
+            <div class="contact__item">
+                <i class="fa-solid fa-envelope contact__icon"></i>
+            <div>
+            <h3 class="contact__title">Email Me</h3>
+                <span class="contact__data">ian13garrido@gmail.com</span> 
+        </div>
+    </div>
+
+    <div class="contact__item">
+        <i class="fa-solid fa-location-dot contact__icon"></i>
+    <div>
+    <h3 class="contact__title">Location</h3>
+        <span class="contact__data">Mabuhay City, Paliparan 3, Dasmariñas, Cavite</span> 
+</div>
+</div>
+            </div>
+            
+                <form action="{% url 'contact' %}" method="post" class="contact__form">
+                    {% csrf_token %}
+                    <div class="form__group">
+                        <div class="class__input">
+                            <input type="text" name="name" placeholder="Name" class="input__control" required />
+                        </div>
+                        <div class="class__input">
+                            <input type="email" name="email" placeholder="Email" class="input__control" required />
+                        </div>
+                    </div>
+                    <div class="class__input">
+                        <input type="text" name="subject" placeholder="Subject" class="input__control" required />
+                    </div>
+                    <div class="class__input">
+                        <textarea name="message" placeholder="Message" rows="10" class="input__control textarea" required></textarea>
+                    </div>
+                    <div class="gradient_contact">
+                    <button type="submit" class="contact__btn">Send Message</button>
+                </div>
+                </form>
+            </div>
+        </div>
+            </section>
+    </main>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

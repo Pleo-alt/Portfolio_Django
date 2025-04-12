@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Future Plans</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="{% static 'logo.png' %}" class="image_logo">
+                <h1 class="text_logo">GARRIDO</h1>
+            </div>
+            <ul class="nav_list">
+                <li class="menu"><a href="{% url 'home' %}" >Home</a></li>
+                <li class="menu"><a href="{% url 'skills' %}" >Skills</a></li>
+                <li class="menu"><a href="{% url 'about' %}">About</a></li>
+                <li class="menu"><a href="{% url 'projects' %}">Projects</a></li>
+                <li class="menu"><a href="{% url 'challenges' %}">Challenges</a></li>
+                <li class="menu"><a href="{% url 'future_plans' %}" class="active">Future Plans</a></li>
+                <li class="menu"><a href="{% url 'resume' %}">Resume</a></li>
+                <li class="menu"><a href="{% url 'contact' %}">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="future_plans_section">
+            <div class="future_plans">
+                <h1 class="section_title">Future Plans</h1>
+                <p class="intro_text">
+                    As I look ahead, I am excited about the opportunities and challenges that lie before me. 
+                    My future plans include furthering my education, expanding my skill set, and making a positive impact in my field. 
+                    Here are some of the goals I have set for myself:
+                </p>
+                <div class="plans-list">
+                    {% for plan in future_plans %}
+                    <div class="plans-item">
+                        <div class="plans-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="plans-content">
+                            <h2 class="plans-title">{{ plan.title }}</h2>
+                            <p class="plans-description">{{ plan.description }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
